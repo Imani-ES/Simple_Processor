@@ -1,0 +1,16 @@
+module InstructionMemory(
+    input [7:0] a,
+    output [7:0] out
+    );
+    reg [7:0] mem [255:0];
+    integer i = 0;
+    initial begin
+        while(i <= 255)
+            mem[i] = 8'b00000000;
+            i = i+1;
+        end
+    always @ (a)
+        mem[0] = a;
+    assign out = a;
+    
+endmodule
