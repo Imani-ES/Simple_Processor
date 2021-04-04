@@ -1,0 +1,70 @@
+module Control(
+    input [2:0] a,
+    output reg ALU_Op,
+    output reg Reg_Dest,
+    output reg Reg_Write,
+    output reg Jump,
+    output reg Mem_Read,
+    output reg Mem_Write,
+    output reg Mem_to_Reg
+    );
+    always @ (a)
+    begin
+    case(a)
+    3'b000: begin //lw
+            ALU_Op = 1'b0;
+            Reg_Dest = 1'b1;
+            Reg_Write = 1'b1;
+            Jump = 1'b0;
+            Mem_Read = 1'b0;
+            Mem_Write = 1'b0;
+            Mem_to_Reg = 1'b0;
+            end
+    3'b001: begin //sw
+            ALU_Op = 1'b0;
+            Reg_Dest = 1'b1;
+            Reg_Write = 1'b1;
+            Jump = 1'b0;
+            Mem_Read = 1'b0;
+            Mem_Write = 1'b0;
+            Mem_to_Reg = 1'b0;
+            end
+    3'b010: begin //jmp
+            ALU_Op = 1'b0;
+            Reg_Dest = 1'b1;
+            Reg_Write = 1'b1;
+            Jump = 1'b0;
+            Mem_Read = 1'b0;
+            Mem_Write = 1'b0;
+            Mem_to_Reg = 1'b0;
+            end
+    3'b011: begin //add
+            ALU_Op = 1'b0;
+            Reg_Dest = 1'b1;
+            Reg_Write = 1'b1;
+            Jump = 1'b0;
+            Mem_Read = 1'b0;
+            Mem_Write = 1'b0;
+            Mem_to_Reg = 1'b0;
+            end
+    3'b100: begin //addi
+            ALU_Op = 1'b0;
+            Reg_Dest = 1'b1;
+            Reg_Write = 1'b1;
+            Jump = 1'b0;
+            Mem_Read = 1'b0;
+            Mem_Write = 1'b0;
+            Mem_to_Reg = 1'b0;
+            end
+    3'b101: begin //sub
+            ALU_Op = 1'b0;
+            Reg_Dest = 1'b1;
+            Reg_Write = 1'b1;
+            Jump = 1'b0;
+            Mem_Read = 1'b0;
+            Mem_Write = 1'b0;
+            Mem_to_Reg = 1'b0;
+            end
+    endcase
+    end
+endmodule
