@@ -1,0 +1,7 @@
+module SignExt_3to8(
+    input [2:0] a,
+    output [7:0] out
+    );
+    assign out[7:3] = 5'b00000;
+    assign out[2:0] = a[2:0];
+endmodule
