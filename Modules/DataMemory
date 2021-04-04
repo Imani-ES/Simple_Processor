@@ -1,0 +1,22 @@
+module DataMemory(
+    input [7:0] a,
+    input write,
+    input read,
+    output [7:0] out
+    );
+    reg [7:0] mem [255:0];
+    integer i = 0;
+    initial begin
+        while(i <= 255)
+            mem[i] = 8'b00000000;
+            i = i+1;
+        end
+    always @ (a or out)
+    if (write == 1)begin
+        mem[0] = a; //write something in memory location
+    end 
+    always @ (a or out) 
+    if (read == 1)begin
+        mem[0] = out; //find address and put in ouput
+    end  
+endmodule
