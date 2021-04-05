@@ -1,0 +1,10 @@
+module Mux(
+    input a,
+    input b,
+  	input s,
+    output o
+    );
+  always @ (a or b or s)begin
+    o = (s and a) or (not(s) and b); 
+  end
+endmodule
