@@ -1,4 +1,4 @@
-module Mux(
+modul Mux_2to1(
     input a,
     input b,
   	input s,
