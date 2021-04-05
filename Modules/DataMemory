@@ -18,5 +18,6 @@ module DataMemory(
     always @ (a or out) 
     if (read == 1)begin
         mem[0] = out; //find address and put in ouput
+        //out = mem[0]??
     end  
 endmodule
