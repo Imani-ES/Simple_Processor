@@ -1,0 +1,10 @@
+module ProgramCounter(
+
+input clk, 
+input [7:0] in,
+output reg [7:0] instruction
+    );
+    always @ (clk) begin
+    assign instruction = in;
+    end   
+endmodule
