@@ -1,0 +1,20 @@
+module RegisterFile(
+    input readReg1, readReg2, writeReg, regWrite,
+    input [7:0] writeData,
+    output reg [7:0] readData1, readData2
+    );
+    reg [7:0] regMem [1:0];
+    
+    always @ (*) begin
+    regMem[0] = 8'b00100110; //t0
+    regMem[1] = 8'b00011100; //t1
+    
+    if(readReg1)
+    regMem[0] = readData1;
+    if(regWrite)
+    regMem[writeReg] = writeData;
+    if(readReg2)
+    regMem[1] = readData2;
+    
+    end
+endmodule
