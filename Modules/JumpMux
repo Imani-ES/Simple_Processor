@@ -1,0 +1,13 @@
+module JumpMux(
+    input [7:0] a,
+    input [7:0] b,
+    output reg [7:0] out,
+    input jump
+    );
+    always @ (*) begin
+    if (jump == 1)
+    assign out = a;
+    else
+    assign out = b;
+    end
+endmodule
