@@ -1,8 +1,8 @@
 module DataMemory(
-    input [7:0] a,
+    input [7:0] a, address,
     input write,
     input read,
-    output [7:0] out
+    output reg [7:0] out
     );
     reg [7:0] mem [255:0];
     integer i = 0;
@@ -11,13 +11,11 @@ module DataMemory(
             mem[i] = 8'b00000000;
             i = i+1;
         end
-    always @ (a or out)
-    if (write == 1)begin
-        mem[0] = a; //write something in memory location
-    end 
-    always @ (a or out) 
-    if (read == 1)begin
-        mem[0] = out; //find address and put in ouput
-        //out = mem[0]??
+        
+    always @ (*) begin
+    if (write == 1)
+        mem[address] = a; //write something in memory location
+    else if (read == 1)
+        out = mem[address]; //find address and put in ouput
     end  
 endmodule
