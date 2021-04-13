@@ -2,14 +2,14 @@ module ALU(
     input [7:0] a,
     input [7:0] b,
     output reg [7:0] out,
-    input [1:0] op
+    input op
     );
-    always @ (op or a or b)begin
+    always @ (*)begin
     if (op == 0)begin
-        out = a + b;
+    assign out = a + b;
     end
     if (op == 1)begin
-        out = a - b;
+    assign out = a - b;
     end    
 end    
 
