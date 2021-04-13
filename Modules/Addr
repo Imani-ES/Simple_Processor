@@ -1,0 +1,8 @@
+module Addr(
+    input [7:0] a,
+    output reg [7:0] out
+    );
+    always @ (*) begin
+    assign out = a+1;
+    end
+endmodule
