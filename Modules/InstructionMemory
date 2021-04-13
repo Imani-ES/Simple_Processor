@@ -1,16 +1,26 @@
 module InstructionMemory(
     input [7:0] a,
-    output [7:0] out
+    input clk,
+    output reg [7:0] out
     );
     reg [7:0] mem [255:0];
-    integer i = 0;
+    integer i = 6;
+    integer n = 0;
     initial begin
+    mem[0] = 8'b01101000; //add $t0,$t1,$t0
+    mem[1] = 8'b10101000; //sub $t0,$t1,$t0
+    mem[2] = 8'b10001101; //addi $t0,$t1,5
+    mem[3] = 8'b00001000; //lw $t0,0(%t1)
+    mem[4] = 8'b01000011; //j L1
+    mem[5] = 8'b00101000; //sw $t0,0($t1)
         while(i <= 255)
             mem[i] = 8'b00000000;
-            i = i+1;
+            i = i + 1;
         end
-    always @ (a)
-        mem[0] = a;
-    assign out = a;
     
+    always @ (*) begin
+    mem[n] = a;
+    out = mem[n];
+    n = n + 1;
+    end      
 endmodule
