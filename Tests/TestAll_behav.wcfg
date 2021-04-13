@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TestAll_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TestAll" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="4993fs"></ZoomStartTime>
+      <ZoomEndTime time="5004fs"></ZoomEndTime>
+      <Cursor1Time time="5000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="113"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/TestAll/A" type="array">
+      <obj_property name="ElementShortName">A[2:0]</obj_property>
+      <obj_property name="ObjectShortName">A[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout" type="array">
+      <obj_property name="ElementShortName">Cout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/B" type="array">
+      <obj_property name="ElementShortName">B[4:0]</obj_property>
+      <obj_property name="ObjectShortName">B[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout2" type="array">
+      <obj_property name="ElementShortName">Cout2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/C" type="array">
+      <obj_property name="ElementShortName">C[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/OP" type="logic">
+      <obj_property name="ElementShortName">OP</obj_property>
+      <obj_property name="ObjectShortName">OP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout3" type="array">
+      <obj_property name="ElementShortName">Cout3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/E" type="array">
+      <obj_property name="ElementShortName">E[7:0]</obj_property>
+      <obj_property name="ObjectShortName">E[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout4" type="array">
+      <obj_property name="ElementShortName">Cout4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout4[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/F" type="logic">
+      <obj_property name="ElementShortName">F</obj_property>
+      <obj_property name="ObjectShortName">F</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/G" type="array">
+      <obj_property name="ElementShortName">G[7:0]</obj_property>
+      <obj_property name="ObjectShortName">G[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout5" type="array">
+      <obj_property name="ElementShortName">Cout5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout5[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/H" type="logic">
+      <obj_property name="ElementShortName">H</obj_property>
+      <obj_property name="ObjectShortName">H</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/I" type="array">
+      <obj_property name="ElementShortName">I[7:0]</obj_property>
+      <obj_property name="ObjectShortName">I[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/J" type="array">
+      <obj_property name="ElementShortName">J[7:0]</obj_property>
+      <obj_property name="ObjectShortName">J[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout6" type="array">
+      <obj_property name="ElementShortName">Cout6[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout6[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/K" type="logic">
+      <obj_property name="ElementShortName">K</obj_property>
+      <obj_property name="ObjectShortName">K</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/L" type="array">
+      <obj_property name="ElementShortName">L[7:0]</obj_property>
+      <obj_property name="ObjectShortName">L[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/M" type="array">
+      <obj_property name="ElementShortName">M[7:0]</obj_property>
+      <obj_property name="ObjectShortName">M[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout7" type="array">
+      <obj_property name="ElementShortName">Cout7[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout7[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/O" type="logic">
+      <obj_property name="ElementShortName">O</obj_property>
+      <obj_property name="ObjectShortName">O</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/P" type="array">
+      <obj_property name="ElementShortName">P[7:0]</obj_property>
+      <obj_property name="ObjectShortName">P[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestAll/Cout8" type="array">
+      <obj_property name="ElementShortName">Cout8[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Cout8[7:0]</obj_property>
+   </wvobject>
+</wave_config>
