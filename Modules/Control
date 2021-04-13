@@ -8,32 +8,32 @@ module Control(
     output reg Mem_Write,
     output reg Mem_to_Reg
     );
-    always @ (a)
+    always @ (*)
     begin
     case(a)
     3'b000: begin //lw
             ALU_Op = 1'b0;
-            Reg_Dest = 1'b1;
-            Reg_Write = 1'b1;
+            Reg_Dest = 1'b0;
+            Reg_Write = 1'b0;
             Jump = 1'b0;
-            Mem_Read = 1'b0;
+            Mem_Read = 1'b1;
             Mem_Write = 1'b0;
-            Mem_to_Reg = 1'b0;
+            Mem_to_Reg = 1'b1;
             end
     3'b001: begin //sw
             ALU_Op = 1'b0;
-            Reg_Dest = 1'b1;
-            Reg_Write = 1'b1;
+            Reg_Dest = 1'b0;
+            Reg_Write = 1'b0;
             Jump = 1'b0;
             Mem_Read = 1'b0;
-            Mem_Write = 1'b0;
+            Mem_Write = 1'b1;
             Mem_to_Reg = 1'b0;
             end
     3'b010: begin //jmp
             ALU_Op = 1'b0;
-            Reg_Dest = 1'b1;
-            Reg_Write = 1'b1;
-            Jump = 1'b0;
+            Reg_Dest = 1'b0;
+            Reg_Write = 1'b0;
+            Jump = 1'b1;
             Mem_Read = 1'b0;
             Mem_Write = 1'b0;
             Mem_to_Reg = 1'b0;
@@ -57,7 +57,7 @@ module Control(
             Mem_to_Reg = 1'b0;
             end
     3'b101: begin //sub
-            ALU_Op = 1'b0;
+            ALU_Op = 1'b1;
             Reg_Dest = 1'b1;
             Reg_Write = 1'b1;
             Jump = 1'b0;
