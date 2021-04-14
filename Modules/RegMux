@@ -1,0 +1,13 @@
+module RegMux(
+    input [7:0] a,
+    input [7:0] b,
+    output reg [7:0] out,
+    input register
+    );
+    always @ (*) begin
+    if (register == 1)
+    assign out = a;
+    else
+    assign out = b;
+    end
+endmodule
