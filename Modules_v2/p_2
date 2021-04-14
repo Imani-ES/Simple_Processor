@@ -1,0 +1,45 @@
+module p_2( //input [7:0] test_instruction 
+);  
+    reg clk;
+    
+    wire [7:0] instruction;
+    wire [2:0] ctrl,immediate;//3-bit control
+    wire [7:0] pc,give_Inst;               //8-bit pc
+    reg [7:0] regMem [1:0];     //two 8-bit registers  
+    wire [4:0] jmp_address;
+    wire [7:0] cur_inst,imm_full,rs,rt,rd,alu_in,alu_out,data_out,jmpr,stpr,write;        //holds current instruction    
+    wire ALU_Op,Reg_Dest,Reg_Write,imm_flag,Jump, Mem_Read, Mem_Write, Mem_to_Reg;//control values
+         //Testing Values//
+    assign pc = 8'b00000000;
+    assign give_Inst = 8'b01101000;
+    
+    //Get Instruction
+    InstructionMemory fetch_instruction(give_Inst,pc, clk,rs,rt,rd,immediate,instruction,ctrl,jmp_address);
+    
+    //Control - All Types
+    Control control_unit(ctrl,ALU_Op,Reg_Dest, Reg_Write,Jump,Mem_Read, Mem_Write,Mem_to_Reg,imm_flag);
+    
+    //Get immediate Value
+    SignExt3to8 get_immediate_val(immediate,imm_full);
+    
+    //Choose ALU 2n'd input
+    ImmMux i_type(imm_full,rt,imm_flag,alu_in);
+    
+    //ALU Operation - R&I types
+    ALU ALU_OP(rs,alu_in,ALU_Op,alu_out);
+    DataMemory write_or_read(rs,alu_out,Mem_Write,Mem_to_Reg,data_out);
+    
+    // Write to Register
+    DestMux write_to_register(alu_out,data_out, Mem_to_Reg, Mem_Write, Jump,rd);
+    
+    //Moving PC - All Types
+    SignExt5to8 jump_val(jmp_address,jmpr);
+    Addr step_val(clk,pc,stpr);
+    JumpMux get_next_pc(jmpr,stpr,Jump,pc);
+    
+    
+    initial begin
+        clk=0;
+    end
+    always #50 clk =~clk;
+endmodule
