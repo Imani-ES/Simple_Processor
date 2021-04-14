@@ -1,0 +1,11 @@
+module SignExt5to8(
+    input [4:0] address,
+    output reg [7:0] pc_holder
+    );
+    reg [7:0] holder;
+    always@(address)begin
+        holder[7:3] =5'b00000;
+        holder[2:0] = address[2:0];
+        assign pc_holder = holder;
+    end
+endmodule
