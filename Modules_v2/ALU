@@ -1,0 +1,15 @@
+module ALU(
+    input [7:0] a,
+    input [7:0] b,
+    input op,
+    output reg [7:0] out
+    );
+    always @ (op)begin
+        if (op == 0)begin
+        assign out = a + b;
+        end
+        if (op == 1)begin
+        assign out = a - b;
+        end   
+    end
+endmodule
