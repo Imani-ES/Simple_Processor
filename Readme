@@ -1,1 +1,14 @@
 Simple 8 bit Processor using Verilog in the Vivado environment
+Processor version1: 
+- Uses behavioral verilog well.
+- Executes instructions based on Opcode
+- I stopped because I realized I wasn't using any of the required components
+Processor version2:
+- What professor wants
+- Goes through cycle with if statements
+**Could not simulate processor as toplevel for some reason.
+  Ill ask in class and pretty much spend all day tommorow in Vivado anyway
+**Modules we dont need**
+Register File
+DataMemory
+InstructionMemory
