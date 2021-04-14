@@ -1,0 +1,20 @@
+module DataMemory(//Holds mem array
+    input [7:0] rs,
+    input [7:0] address,
+    input Mem_Write,
+    input Mem_Read,
+    output reg [7:0] data_out
+    );
+    reg [7:0] mem [255:0];
+    integer i = 0;
+    initial begin
+        end
+        
+    always @ (Mem_Write,Mem_Read) begin
+    // write or reads from memory
+    if (Mem_Write == 1)
+        mem[address] = rs; //write something in memory location
+    else if (Mem_Read == 1)
+        data_out = mem[address]; //find address and put in ouput
+    end 
+endmodule
