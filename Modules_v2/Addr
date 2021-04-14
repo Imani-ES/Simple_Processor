@@ -1,0 +1,12 @@
+module Addr(
+    input   clock,
+    input [7:0] a,
+    output reg [7:0] out
+    );
+    initial begin
+    assign out = 0;
+    end
+    always @ (posedge(clock)) begin
+    assign out = a+1;
+    end
+endmodule
