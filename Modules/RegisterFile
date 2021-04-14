@@ -9,12 +9,11 @@ module RegisterFile(
     regMem[0] = 8'b00100110; //t0
     regMem[1] = 8'b00011100; //t1
     
-    if(readReg1)
-    regMem[0] = readData1;
-    if(regWrite)
+    if(readReg1 == 1)
+    readData1 = regMem[0];
+    if(regWrite == 1)
     regMem[writeReg] = writeData;
-    if(readReg2)
-    regMem[1] = readData2;
-    
+    if(readReg2 == 1)
+    readData2 = regMem[1];
     end
 endmodule
