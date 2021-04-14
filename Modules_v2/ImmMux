@@ -1,0 +1,13 @@
+module ImmMux(
+    input [7:0] a,
+    input [7:0] b,
+    input immeadiate_flag,
+    output reg [7:0] out
+    );
+    always @ (*) begin
+    if (immeadiate_flag == 1)
+    assign out = a;
+    else
+    assign out = b;
+    end
+endmodule
