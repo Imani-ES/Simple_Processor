@@ -1,0 +1,13 @@
+module SignExt3to8(// Used to extend lw and sw and addi immediates
+    input [2:0] a,
+    output reg [7:0] immediate
+    );
+    reg [7:0] holder;
+    initial begin
+    end
+    always@(*)begin
+    holder[7:3] =5'b00000;
+    holder[2:0] = a[2:0];
+    assign immediate = holder;
+    end
+endmodule
