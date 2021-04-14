@@ -1,0 +1,39 @@
+module Processor_v1(
+    input instructions,
+    input clock,
+    output reg [7:0] out_reg
+    );
+    wire [7:0] data_mem [255:0];       //256 long array of 8 bit memory
+    reg [7:0] instruction_mem [255:0];//256 long array of 8 bit instructions 
+    reg [2:0] ctrl;             //3-bit control
+    reg [7:0] pc;               //8-bit pc
+    reg [7:0] regMem [1:0];     //two 8-bit registers  
+    reg [7:0] cur_inst,rs,rt,rd;        //holds current instruction    
+    wire ALU_Op,Reg_Dest,Reg_Write,Jump, Mem_Read, Mem_Write, Mem_to_Reg;//control values and clock
+    always @ (posedge clock) begin
+        assign cur_inst = instruction_mem[pc];//get instruction
+        assign ctrl = cur_inst[5:7];    //set control
+        Control(ctrl,ALU_Op,Reg_Dest, Reg_Write,Jump,Mem_Read, Mem_Write,Mem_to_Reg);
+        case(ctrl)//control unit
+            3'b011: begin//add
+                //Assign registers
+                assign rs = regMem[cur_inst[3]];
+                assign rt = regMem[cur_inst[4]];
+                assign rd = ALU(rs,rt,0);//update destination reg
+                assign out_reg = rd;//testing purposes
+                assign pc = pc + 1;//move pc
+            end
+            3'b101:begin//subtract
+                //Assign registers
+                assign rs = regMem[cur_inst[3]];
+                assign rt = regMem[cur_inst[4]];
+                ALU(rs,rt,1,rd);//update destination reg
+                assign out_reg = rd;//testing purposes
+                assign pc = pc + 1;//move pc
+            end
+            3'b010:begin//jump
+                SignExt5to8(cur_inst[0:4],pc);
+            end
+        endcase
+    end 
+endmodule
