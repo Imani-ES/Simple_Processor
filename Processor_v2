@@ -1,0 +1,43 @@
+module Processor_v2(
+    input instructions
+    );  
+    reg [7:0] out_reg;
+    wire [7:0] data_mem [255:0];       //256 long array of 8 bit memory
+    reg [7:0] instruction_mem [255:0];//256 long array of 8 bit instructions 
+    reg [2:0] ctrl;             //3-bit control
+    reg [7:0] pc;               //8-bit pc
+    reg [7:0] regMem [1:0];     //two 8-bit registers  
+    reg [7:0] cur_inst,rs,rt,rd,address,jmpr,stpr;        //holds current instruction    
+    wire ALU_Op,Reg_Dest,Reg_Write,Jump, Mem_Read, Mem_Write, Mem_to_Reg;//control values and clock
+    always @ (*) begin
+        //get instruction
+        assign cur_inst = instruction_mem[pc];
+        //assign cur_inst = 8'b01101000; //add $t0,$t1,$t0
+        //set control
+        assign ctrl = cur_inst[5:7];    
+        Control(ctrl,ALU_Op,Reg_Dest, Reg_Write,Jump,Mem_Read, Mem_Write,Mem_to_Reg);
+        if(Jump == 0)begin
+            //Read Registers
+            assign rs = regMem[cur_inst[3]];
+            assign rd = regMem[cur_inst[4]];
+            //ALU OPeration
+            if(Mem_to_Reg == 0)begin//(add/sub)
+                //Write to destination register
+                ALU(rs,rt,ALU_Op,rd);
+            end
+            else begin
+                //(lw/sw)
+                ALU(rs,rt,ALU_Op,address);
+                DataMemory(rs,address,Mem_Write,Mem_Read,rd);
+            end
+            //assign pc = pc + 1;
+            assign stpr = pc + 1;
+        end
+        else begin //(jmp)
+        //SignExt5to8(cur_inst[0:4],pc);
+        SignExt5to8(cur_inst[0:4],jmpr);
+        end
+        //PC MUX(Pretty useless, but its required)
+        JumpMux(jmpr,stpr,Jump,pc);
+    end 
+endmodule
