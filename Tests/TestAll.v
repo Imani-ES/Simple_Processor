@@ -241,3 +241,162 @@ Q=01000110;
 #5;
 O=0;
 P=00000011;
+Q=01110010;
+#5;
+end 
+
+reg [2:0] a0;   
+wire a1,a2,a3,a4,a5,a6,a7;
+
+Control Behavioral_Control (
+.a(a0),
+.ALU_Op(a1),
+.Reg_Dest(a2),
+.Reg_Write(a3),
+.Jump(a4),
+.Mem_Read(a5),
+.Mem_Write(a6),
+.Mem_to_Reg(a7)
+);
+initial begin
+a0=000;
+#5;
+a0=001;
+#5;
+a0=010;
+#5;
+a0=011;
+#5;
+a0=100;
+#5;
+a0=101;
+#5;
+end
+
+reg b0, b1;
+reg [7:0] b2, b3;
+wire [7:0] Cout9; 
+
+DataMemory Behavioral_DataMemory (
+.write(b0),
+.read(b1),
+.a(b2),
+.address(b3),
+.out(Cout9)
+);
+initial begin
+b0=1;
+b1=0;
+b2=10001000;
+b3=8'b00000000;
+#5;
+b0=0;
+b1=1;
+b2=11111100;
+b3=8'b00000000;
+#5;
+b0=1;
+b1=0;
+b2=10001100;
+b3=8'b00000001;
+#5;
+b0=0;
+b1=1;
+b2=11111111;
+b3=8'b00000001;
+#5;
+b0=0;
+b1=1;
+b2=10000000;
+b3=8'b00000011;
+#5;
+b0=0;
+b1=1;
+b2=10111110;
+b3=8'b00000111;
+#5;
+end
+
+reg [7:0] c0;
+reg c1;
+wire [7:0] Cout10;
+
+InstructionMemory Behavioral_InstructionMemory (
+.a(c0),
+.clk(c1),
+.out(Cout10)
+);
+
+initial begin
+c0=8'b00000000;
+c1=1;
+#5;
+c0=8'b00000001;
+c1=1;
+#5;
+c0=8'b00000010;
+c1=1;
+#5;
+c0=8'b00000011;
+c1=1;
+#5;
+c0=8'b00000100;
+c1=1;
+#5;
+c0=8'b00000101;
+c1=1;
+#5;
+end
+
+reg d0, d1, d2, d3;
+reg [7:0] d4;
+wire [7:0] Cout11, Cout12; 
+
+RegisterFile Behavioral_RegisterFile (
+.readReg1(d0),
+.readReg2(d1),
+.writeReg(d2),
+.regWrite(d3),
+.writeData(d4),
+.readData1(Cout11),
+.readData2(Cout12)
+);
+initial begin
+d0=1;
+d1=1;
+d2=0;
+d3=1;
+d4=1001001;
+#5; 
+d0=1;
+d1=0;
+d2=1;
+d3=1;
+d4=1011101;
+#5; 
+d0=1;
+d1=1;
+d2=1;
+d3=1;
+d4=11111111;
+#5;
+d0=1;
+d1=1;
+d2=0;
+d3=0;
+d4=0000001;
+#5;
+d0=1;
+d1=1;
+d2=0;
+d3=0;
+d4=01010101;
+#5;
+d0=1;
+d1=1;
+d2=1;
+d3=1;
+d4=00000001;
+#5;
+end 
+endmodule
