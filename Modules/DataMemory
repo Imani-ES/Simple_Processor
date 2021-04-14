@@ -7,15 +7,26 @@ module DataMemory(
     reg [7:0] mem [255:0];
     integer i = 0;
     initial begin
-        while(i <= 255)
-            mem[i] = 8'b00000000;
-            i = i+1;
+    mem[0]=8'b01010101;
+    mem[1]=8'b01000001;
+    mem[2]=8'b11111101;
+    mem[3]=8'b00100101;
+    mem[4]=8'b00001111;
+    mem[5]=8'b01000111;
+    mem[6]=8'b00100000;
+    mem[7]=8'b00011101;
+  // to initialize all memory locations  
+  //      while(i <= 255)
+  //          mem[i] = 8'b00000000;
+  //          i = i+1;
         end
         
     always @ (*) begin
-    if (write == 1)
-        mem[address] = a; //write something in memory location
-    else if (read == 1)
-        out = mem[address]; //find address and put in ouput
+    i = address;
+     
+    if (read == 1)
+        out = mem[i];
+    else if (write == 1)
+        mem[i] = a;
     end  
 endmodule
