@@ -1,0 +1,17 @@
+module DestMux(
+    input [7:0] alu,
+    input [7:0] data,
+    input Mem_to_Reg,
+    input Mem_Write,
+    input Jump,
+    output reg [7:0] register
+    );
+    always @ (Mem_to_Reg,Jump,Mem_Write) begin
+    if (Mem_to_Reg == 1)
+        assign register = data;
+    else begin
+        if (Jump == 0 && Mem_Write == 0)
+            assign register = alu;
+    end
+    end
+endmodule
