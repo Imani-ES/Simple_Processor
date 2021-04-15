@@ -1,0 +1,25 @@
+module RegisterFile(
+    input rs,
+    input rt,
+    input rd,
+    input Reg_Write,
+    output reg [7:0] RS,
+    output reg [7:0] RT,
+    output reg [7:0] RD
+    );
+     reg [7:0] regMem [1:0];
+    initial begin
+    regMem[0] = 8'b00100110; //t0
+    regMem[1] = 8'b00011100; //t1
+    end
+    always @ (Reg_Write,rs,rt,rd) begin
+        if(Reg_Write == 1)begin // write into register destination
+            regMem[rd] = RD;
+        end
+        else begin // send 8bit registers
+            RD = regMem[rd];
+            RS = regMem[rs];
+            RT = regMem[rt];
+        end
+    end
+endmodule
