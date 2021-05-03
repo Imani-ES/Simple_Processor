@@ -1,0 +1,30 @@
+import os
+
+os.popen("cd ../..\n")
+os.popen("setenv PATH /util/gcc/bin:$PATH\n")
+os.popen("setenv LD_LIBRARY_PATH /util/gcc/lib64:$LD_LIBRARY_PATH\n")
+os.popen("setenv GEM5_DIR /util/gem5\n")
+l1dcs = 0
+l1lcs = 0
+l2dcs = 0
+l2lcs = 0
+l1da = 0
+l1la = 0
+l2a = 0
+blocks = 0
+bench = 0
+benchmark_1= "401.bzip2"
+benchmar_1_args= "/util/gem5/benchmark/401.bzip2/data/input.program 10"
+benchmark_2= "429.mcf"
+benchmar_2_args= "/util/gem5/benchmark/429.mcf/data/inp.in" 
+benchmark_3= "456.hmmer"
+benchmar_3_args= "--fixed 0 --mean 325 --num 45000 --sd 200 --seed 0\n
+ /util/gem5/benchmark/456.hmmer/data/bombesin.hmm.new"
+benchmark_4= "458.sjeng"
+benchmar_4_args= "/util/gem5/benchmark/458.sjeng/data/test.txt"
+benchmark_5= "470.lbm"
+benchmar_5_args= "20 reference.dat 0 1 /util/gem5/benchmark/470.lbm/data/100_100_130_cf_a.of"
+for (l1dcs = 0,
+os.popen("setenv BENCHMARK /util/gem5/benchmark/429.mcf/src/benchmark\n")
+os.popen("setenv ARGUMENT /util/gem5/benchmark/429.mcf/data/inp.in\n")
+os.popen("time $GEM5_DIR/build/X86/gem5.opt -d /cse/490/project2_stats/ $GEM5_DIR/configs/example/se.py -c $BENCHMARK -o $ARGUMENT -I 100000000 --caches --l2cache --l1d_size=512kB --l1i_size=512kB --l2_size=4MB --l1d_assoc=4 --l1i_assoc=4 --l2_assoc=4 -- cacheline_size=32)
